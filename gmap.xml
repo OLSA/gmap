@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="content">
+	<name>plg_content_gmap</name>
+	<author>Oluic Sasa</author>
+	<creationDate>2014-11-05</creationDate>
+	<copyright>OLSA</copyright>
+	<license>GNU General Public License</license>
+	<authorEmail>sasaoluics@yahoo.com</authorEmail>
+	<authorUrl>www.olsa.me</authorUrl>
+	<version>1.0</version>
+	<description>PLG_GMAP_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="gmap">gmap.php</filename>
+		<filename>googlemap.php</filename>
+		<filename>index.html</filename>
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>language</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_gmap.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_gmap.sys.ini</language>
+	</languages>
+	<config>
+        <fields name="params">
+			<fieldset name="basic">
+				<field name="street" type="text" default="Big Ben"
+				label="Street"
+				description="Enter street address."
+				/>
+				<field name="city" type="text" default="London"
+				label="City"
+				description="Enter city name."
+				/>
+				<field name="country" type="text" default="United Kingdom"
+				label="Country"
+				description="Country name."
+				/>
+				<field name="lat" type="text" default=""
+				label="Latitude"
+				description="Enter Latitude. Read Help for details."
+				/>
+				<field name="lng" type="text" default=""
+				label="Longitude"
+				description="Enter Longitude. Read Help for details."
+				/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="size" type="text" default="320x240"
+				label="Small map size"
+				description="Enter size of small map image in format like 320x240."
+				/>
+				<field name="zoom" type="integer" default="12"
+				label="Zoom"
+				description="Enter zoom value, default is 12. Bigger zoom render smaller location area."
+				first="1" last="20" step="1"
+				/>
+				<field name="maptype" type="list" default="roadmap"
+				label="Map type"
+				description="Select map type.">
+					<option value="roadmap">Roadmap</option>
+					<option value="satellite">Satellite</option>
+					<option value="hybrid">Hybrid</option>
+					<option value="terrain">Terrain</option>
+				</field>				
+				<field type="spacer" name="spacer" hr="true" />
+				<field name="setmode" type="list" default="0"
+				label="Settings mode" description="If activated than you get right click map option to read current cursor position details like Latitude, Longitude and current Zoom. After it you can copy values with CTRL+C to plugin parameters.">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>				
+			</fieldset>
+			<fieldset name="help" label="Help">
+				<field name="note1" type="note" label="Do I need to enter Latitude and Longitude?" description="If you want faster map rendering and page response than Yes. Also, Latitude and Longitude are important for popup map.&lt;br&gt; With coordinates you can show location marker in right position, what can&apos;t be done with address only."/>
+				<field name="note2" type="note" label="How can I find Latitude and Longitude?" description="1.Option: Activate Settings mode inside Advanced tab options. After it find your location and press right click, select values inside alert box and copy with CTRL+C.&lt;br&gt;2.Option: Go to: https://www.google.com/maps and after you find your location area, place cursor over your location, press right click and select &quot;What&apos;s here?&quot;."/>				
+                <field name="note3" type="note" label="Can I override default settings inside article?" description="Yes you can. Inside plugin brackets you can define custom params separated with space.&lt;br&gt;Important note is that if your params for street, city or country contain few words use sign plus + to separate words NOT SPACES!&lt;br&gt;Example:{gmap size=480x240 zoom=10 street=My+Street city=My+City country=My+Country lat=42.123456 lng=19.123456}"/>
+                <field name="note4" type="note" label="What makes this plugin different?" description="Main thing about this plugin is to get faster response because it doesn&apos;t use usual embed iframe principal.&lt;br&gt;Because of that, this plugin generate reduced number of HTTP requests to Google Maps Service."/>
+			</fieldset>
+        </fields>
+	</config>
+</extension>
