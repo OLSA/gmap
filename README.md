@@ -1,9 +1,7 @@
 # gmap
 Google map Joomla plugin
 
-#About plugin
-
-#Characteristics
+# About plugin
 
 * shows static map image to get faster page loading
 * click on image open dynamic map inside popup window
